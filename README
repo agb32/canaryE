@@ -109,5 +109,17 @@ darcmagic time 10
 
 
 
-simsetup.py canaryE.xml to modify the simulation.  e.g....
+daspsetup.py canaryE.xml to modify the simulation.  e.g....
+
+
+
+For LQG:
+
+You need to set reconName to "libreconLQG.so" and also make sure that
+you have all the correct libraries loaded.
+(so, either darcmagic set reconName -string="libreconLQG.so"
+or:
+import darc
+d=darc.Control("main")
+d.Set("reconName","libreconLQG.so")
 
