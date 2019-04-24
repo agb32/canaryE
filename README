@@ -1,0 +1,113 @@
+To run:
+
+#Start the simulation, which then waits for darc to connect.
+mpirun -np 5 python canaryE.py 
+
+#Now start darc
+darccontrol configCanary4Ngs.py -o --prefix=main
+
+
+#Start a darcplot, and look at things...
+darcplot   -> choose e.g. raw pixels, or calpxlsubap, or whatever...
+(right click, click the Subscribe button, and set the relevant
+decimation to 1, otherwise it will update too slowly in simulation mode).
+
+#We will do the brightest pixel background subtraction, and not use a
+# flat field.
+#Optional:
+darcmagic set useBrightest -value=-20
+
+#Note, you could of course explore the different subtraction algorithms, levels, etc...
+
+#There are some scripts that can be used:
+#To turn off the atmosphere:
+python setCalibrationMode.py 1      
+#(this may print an error in the
+#simulation window - ignore it - its just that the script has finished
+#before the simulation had time to return anything)
+
+#And to turn it back off again:
+python setCalibrationMode.py 0
+
+#To set the WFS flux (to 100 photons/subap):
+python setFlux.py 100
+
+#To set the WFS flux (to a billion photons/subap):
+python setFlux.py 1e9
+
+
+
+#To take reference centroids (do this in calibration mode, with high flux):
+python takeRefSlopes.py
+
+#To take a control matrix (again, calibration mode, high flux):
+python doBasicPoke.py
+#Or:
+python pokeSine.py 0.1 1. 0.
+
+
+#For a real sytem, you'd probably want a more advanced way of poking.
+
+
+#Set out of calibration mode... and turn down the flux.
+python setCalibrationMode.py 0
+python setFlux.py 100
+
+#After doing this, you can close the loop (an optional gain parameter
+#can be supplied, default is 0.5):
+python closeLoop.py
+(or, e.g. python closeLoop.py 0.1)
+
+#To open the loop:
+python openLoop.py
+
+
+
+
+
+To view science PSFs, you can use the simulation tools:
+daspctrl.py
+
+There is a button "connect" - enter "9004" in the
+box next to this, and then click it.
+
+Then click "Get plots".
+
+Scroll down to the bottom and click the "Zero science"
+button.  This resets the long exposure integration.
+
+Scroll up slightly until you see "science_sci1".  Expand this item, and select
+"Instantaneous Image".  Then you will see the AO corrected
+instantaneous PSF, at 1650nm.  The "long PSF" item will show the
+integrated PSF.  "Science params" item shows various parameters of the
+integrated PSF (Strehl etc).
+
+"science_sci1uncorr" is the uncorrected PSF.
+
+To change conditioning of the control matrix, can use eg:
+python makeRecon.py 0.1  (or any value <1).  
+Then remember to "Zero science"
+Of course, for an on-sky system, you would probably want a better
+method for control matrix generation - a minimum variance
+reconstructor or something.
+
+The simulation is comprised of 5 processes.  To connect to other ones
+(e.g. to see the off-axis wfs images in dasp), you connect to ports
+between 9000 -> 9004 using daspctrl.py
+
+To stop:
+darcmagic stop -c
+
+Simulation will then wait for a new darc to reconnect - or you can
+Ctrl-C it (the simulation - not darc - since this would only stop the
+control part of darc, not the real-time part - by design!).
+
+
+Useful commands:
+darcmagic status
+darcmagic time 10
+
+
+
+simsetup.py canaryE.xml to modify the simulation.  e.g....
+

@@ -1,0 +1,308 @@
+
+<aosim>
+<simSetup>
+<precode>
+ttval=ctrl.config.getVal("tipTiltVal",default=1.)
+</precode>
+<simulationObject cpu="(1, 1)" import="science.iscrn" object="iscrn" pos="80,64" tag="1" shortname="iscrn" pixmap="infScrn.xpm" feedback="0" pyname="" groupshare="0" args="" connectto="[3, 11, 44]" connectfrom="[]" textcol="red" idstr="allLayers">
+<lines>
+[
+[],
+[],
+[],
+]
+</lines>
+<endlines>
+[
+]
+</endlines>
+<parentNames>
+[]
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<simulationObject cpu="(1, 1)" import="science.iatmos" object="iatmos" pos="80,144" tag="3" shortname="iatmos" pixmap="infAtmos.xpm" feedback="0" pyname="" groupshare="0" args="" connectto="[27]" connectfrom="[1]" textcol="red" idstr="$">
+<lines>
+[
+[],
+]
+</lines>
+<endlines>
+[
+[],
+]
+</endlines>
+<parentNames>
+['allLayers']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<simulationObject cpu="(1, 1)" import="science.wfscent" object="wfscent" pos="80,389" tag="7" shortname="wfscent" pixmap="wfscent.xpm" feedback="0" pyname="" groupshare="0" args="" connectto="[20]" connectfrom="[27]" textcol="red" idstr="$">
+<lines>
+[
+[],
+]
+</lines>
+<endlines>
+[
+[],
+]
+</endlines>
+<parentNames>
+['']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<simulationObject cpu="(1, 1)" import="science.iatmos" object="iatmos" pos="180,144" tag="11" shortname="iatmos" pixmap="infAtmos.xpm" feedback="0" pyname="" groupshare="0" args="" connectto="[28, 31]" connectfrom="[1]" textcol="red" idstr="$">
+<lines>
+[
+[],
+[],
+]
+</lines>
+<endlines>
+[
+[],
+]
+</endlines>
+<parentNames>
+['allLayers']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<simulationObject cpu="(1, 1)" import="science.xinterp_dm" object="dm" pos="183,307" tag="17" shortname="xdm" pixmap="xinterp_dm.xpm" feedback="0" pyname="" groupshare="1" args="" connectto="[15]" connectfrom="[22, 28]" textcol="red" idstr="dm0path$">
+<lines>
+[
+[],
+]
+</lines>
+<endlines>
+[
+[(128, 673), (128, 275)],
+[],
+]
+</endlines>
+<parentNames>
+['', '']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<simulationObject cpu="(1, 1)" import="science.science" object="science" pos="183,388" tag="15" shortname="science" pixmap="sci.xpm" feedback="0" pyname="" groupshare="0" args="" connectto="[]" connectfrom="[17]" textcol="red" idstr="$">
+<lines>
+[
+]
+</lines>
+<endlines>
+[
+[],
+]
+</endlines>
+<parentNames>
+['']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<groupShare idstr="1,2,3," cpu="[2,3,4,]" coordlist="[(29, 104), (120, 104), (120, 436), (29, 436)]"/>
+<groupShare idstr="sci1," cpu="[5,]" coordlist="[(140, 102), (301, 102), (301, 454), (140, 454)]"/>
+<simulationObject cpu="(1, 1)" import="predarc" object="Predarc" pos="80,487" tag="20" shortname="predarc" pixmap="" feedback="0" pyname="" groupshare="0" args="" connectto="[24]" connectfrom="[7, 40]" textcol="white" idstr="">
+<lines>
+[
+[],
+]
+</lines>
+<endlines>
+[
+[],
+[],
+]
+</endlines>
+<parentNames>
+['$', '4']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<simulationObject cpu="(1, 1)" import="postdarc" object="Postdarc" pos="80,640" tag="22" shortname="postdarc" pixmap="" feedback="0" pyname="" groupshare="0" args="" connectto="[17, 27, 28, 36, 38]" connectfrom="[24]" textcol="white" idstr="">
+<lines>
+[
+[(128, 673), (128, 275)],
+[(12, 673), (12, 199)],
+[(128, 673), (128, 195)],
+[(454, 673), (454, 197)],
+[(454, 673), (454, 287)],
+]
+</lines>
+<endlines>
+[
+[],
+]
+</endlines>
+<parentNames>
+['']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<simulationObject cpu="(1, 1)" import="science.darcsim" object="Darc" pos="80,564" tag="24" shortname="darc" pixmap="xinterp_recon.xpm" feedback="1" pyname="" groupshare="0" args="" connectto="[22]" connectfrom="[20]" textcol="red" idstr="darc">
+<lines>
+[
+[],
+]
+</lines>
+<endlines>
+[
+[],
+]
+</endlines>
+<parentNames>
+['img']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<simulationObject cpu="(1, 1)" import="science.zdm" object="dm" pos="80,231" tag="27" shortname="zdm" pixmap="glao_zdm.xpm" feedback="0" pyname="" groupshare="0" args="" connectto="[7]" connectfrom="[3, 22]" textcol="red" idstr="ttpath$">
+<lines>
+[
+[],
+]
+</lines>
+<endlines>
+[
+[],
+[(12, 673), (12, 199)],
+]
+</endlines>
+<parentNames>
+['', '']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<simulationObject cpu="(1, 1)" import="science.zdm" object="dm" pos="180,227" tag="28" shortname="zdm" pixmap="glao_zdm.xpm" feedback="0" pyname="" groupshare="0" args="" connectto="[17]" connectfrom="[11, 22]" textcol="red" idstr="ttpath$">
+<lines>
+[
+[],
+]
+</lines>
+<endlines>
+[
+[],
+[(128, 673), (128, 195)],
+]
+</endlines>
+<parentNames>
+['', '']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<simulationObject cpu="(1, 1)" import="science.science" object="science" pos="256,226" tag="31" shortname="science" pixmap="sci.xpm" feedback="0" pyname="" groupshare="0" args="" connectto="[]" connectfrom="[11]" textcol="red" idstr="$uncorr">
+<lines>
+[
+]
+</lines>
+<endlines>
+[
+[],
+]
+</endlines>
+<parentNames>
+['']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<simulationObject cpu="(1, 1)" import="science.zdm" object="dm" pos="365,229" tag="36" shortname="zdm" pixmap="glao_zdm.xpm" feedback="0" pyname="" groupshare="0" args="" connectto="[38]" connectfrom="[22, 44]" textcol="red" idstr="ttpath4">
+<lines>
+[
+[],
+]
+</lines>
+<endlines>
+[
+[(454, 673), (454, 197)],
+[],
+]
+</endlines>
+<parentNames>
+['', '']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<simulationObject cpu="(1, 1)" import="science.xinterp_dm" object="dm" pos="349,319" tag="38" shortname="xdm" pixmap="xinterp_dm.xpm" feedback="0" pyname="" groupshare="0" args="" connectto="[40]" connectfrom="[36, 22]" textcol="red" idstr="dm0path4">
+<lines>
+[
+[],
+]
+</lines>
+<endlines>
+[
+[],
+[(454, 673), (454, 287)],
+]
+</endlines>
+<parentNames>
+['', '']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<simulationObject cpu="(1, 1)" import="science.wfscent" object="wfscent" pos="346,409" tag="40" shortname="wfscent" pixmap="wfscent.xpm" feedback="0" pyname="" groupshare="0" args="" connectto="[20]" connectfrom="[38]" textcol="red" idstr="4">
+<lines>
+[
+[],
+]
+</lines>
+<endlines>
+[
+[],
+]
+</endlines>
+<parentNames>
+['']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+<simulationObject cpu="(1, 1)" import="science.iatmos" object="iatmos" pos="350,148" tag="44" shortname="iatmos" pixmap="infAtmos.xpm" feedback="0" pyname="" groupshare="0" args="" connectto="[36]" connectfrom="[1]" textcol="red" idstr="">
+<lines>
+[
+[],
+]
+</lines>
+<endlines>
+[
+[],
+]
+</endlines>
+<parentNames>
+['allLayers']
+</parentNames>
+<sharedTo>
+[]
+</sharedTo>
+</simulationObject>
+</simSetup>
+</aosim>
