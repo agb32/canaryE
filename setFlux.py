@@ -8,7 +8,7 @@ wfscentList[0].thisObjList[0].wfscentObj.centcmod.sig=%g
 wfscentList[0].thisObjList[0].wfscentObj.sig=%g
 """%(val,val,val)
 
-for i in range(5):
+for i in range(4):
     a=util.analyse.analyse()
     a.openConnection("localhost",9000+i,pr=0)
 

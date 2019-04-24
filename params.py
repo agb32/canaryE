@@ -37,8 +37,8 @@ id="%d"%(i+1)
 wfsDict[id]=util.guideStar.NGS(id,14,0.,0.,phasesize=8,minarea=0.5,sig=1e6,sourcelam=ngsLam,reconList=["recon"],pupil=pupil)
 sourceList.append(wfsDict[id])
 
-#wfsDict["img"]=util.guideStar.NGS("img",0.,0.,-1,7,700,reconList=["darc"])#dummy
-#sourceList.append(wfsDict["img"])
+wfsDict["img"]=util.guideStar.NGS("img",0.,0.,-1,7,700,reconList=["darc"])#dummy
+sourceList.append(wfsDict["img"])
 
 wfsOverview=util.guideStar.wfsOverview(wfsDict)
 

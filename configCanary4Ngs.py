@@ -284,6 +284,8 @@ if NLGSOCAM!=0:
                 pxlCnt[indx]=n
         pxlCnt[maxindx]=npxlx[k]*npxly[k]
 
+#for simulation:
+pxlCnt[:]=128*128
 
 #The params are dependent on the interface library used.
 
