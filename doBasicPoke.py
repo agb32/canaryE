@@ -28,7 +28,8 @@ rmx=d.Get("rmx")
 nacts,nslopes=rmx.shape
 pmx=numpy.zeros(rmx.shape,numpy.float32)
 d.Set("addActuators",0)
-actuators=numpy.ones((nacts,),numpy.float32)*32768
+actuators=numpy.zeros((nacts,),numpy.float32)
+actuators[:2]=32768#the tip-tilt mirror.
 for i in range(nacts):
     print "Poking %d"%i
     actuators[i]=pokeval
